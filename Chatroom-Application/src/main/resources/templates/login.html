@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Chatroom</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to right, #3a6186, #89253e);
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        padding: 20px;
+      }
+      .left-section {
+        width: 50%;
+        padding: 20px;
+        text-align: left;
+      }
+      .chat-header {
+        font-size: 50px;
+        font-weight: 600;
+        color: #ffffff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      .tagline {
+        font-size: 18px;
+        font-weight: 300;
+        margin-top: 10px;
+        color: #dddddd;
+      }
+      .right-section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        width: 35%;
+      }
+      .form-group label {
+        font-weight: 600;
+        color: #ffffff;
+      }
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0px 0px 5px #ffffff;
+      }
+      .form-control::placeholder {
+        color: #ffffff;
+        opacity: 0.8; 
+      }
+      .btn-login {
+        background: linear-gradient(90deg, #ff8a00, #e52e71);
+        color: #ffffff;
+        font-weight: 600;
+        border: none;
+        width: 100%;
+        padding: 12px;
+        border-radius: 5px;
+        margin-top: 20px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .btn-login:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px 0;
+        color: #ffffff;
+        font-size: 14px;
+      }
+      .custom-link {
+        color: #ff8a00;
+        text-decoration: none;
+      }
+      .custom-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <div class="chat-header">Welcome to Chatroom</div>
+        <div class="tagline">Connect, Share, and Engage with the World.</div>
+      </div>
+      <div class="right-section">
+        <form th:action="@{/chat}" method="get">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-login">Enter Chat</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
